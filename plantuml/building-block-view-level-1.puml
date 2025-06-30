@@ -1,0 +1,13 @@
+@startuml
+[Administration]
+[Student Enrollment]
+[Students]
+[Finance data]
+[Grades]
+[Students]
+[Lectures]
+[Rooms]
+[Courses]
+[Authentication]
+[Attendance]
+@enduml
