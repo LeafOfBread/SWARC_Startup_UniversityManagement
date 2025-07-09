@@ -1,0 +1,12 @@
+@startuml
+Actor User
+
+User -> StudentController: uploads student data
+StudentController -> AdministrationService: calls registerStudent() with student data
+AdministrationService -> StudentRepository: checks if Student already exists
+StudentRepository -> AdministrationService
+AdministrationService -> StudentEnrollmentService: calls AddStudent() with student data
+Database Database
+StudentEnrollmentService -> Database: inserts into database
+StudentController -> User: returns https status code
+@enduml
