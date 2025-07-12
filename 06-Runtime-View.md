@@ -1,8 +1,6 @@
-Runtime View 
-============
+# Runtime View
 
-Runtime Scenario
---------------------------
+## Runtime Scenario
 
 ![runtime scenario](images/runtime-view.png)
 

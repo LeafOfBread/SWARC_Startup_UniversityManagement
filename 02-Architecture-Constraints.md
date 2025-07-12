@@ -1,5 +1,4 @@
-Architecture Constraints
-========================
+# Architecture Constraints
 
 **Contents**
 

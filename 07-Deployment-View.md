@@ -1,8 +1,6 @@
-Deployment View 
-===============
+# Deployment View 
 
-Infrastructure Level 1
-----------------------
+## Infrastructure Level 1
 
 ![deployment view](images/deployment-view.png)
 

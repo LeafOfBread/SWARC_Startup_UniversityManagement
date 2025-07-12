@@ -1,5 +1,4 @@
-System Scope and Context
-========================
+# System Scope and Context
 
 **Contents.**
 
