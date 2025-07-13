@@ -8,8 +8,6 @@ This section defines the boundaries of the University Management System (UMS) an
 
 Understanding the domain and technical interfaces is crucial for planning integrations, defining security measures, and satisfying stakeholder requirements. It also avoids misunderstandings about system boundaries during development and deployment.
 
----
-
 ## Business Context
 
 The following table describes how the University Management System interacts with external users and systems at the business (domain) level.
@@ -32,8 +30,6 @@ The following table describes how the University Management System interacts wit
 - **University Administrators** handle room and facility management tasks.
 - **CIO and Financial Officer** require system data for compliance, financial oversight, and strategic planning.
 - **External Systems (SIS, Financial System, Moodle)** require integration for seamless data flow, avoiding duplicate data entry and ensuring consistency across systems.
-
----
 
 ## Technical Context
 
@@ -62,6 +58,4 @@ The table below describes the technical interfaces (protocols, channels) used to
 | Financial transactions with Financial Management System | REST API over HTTPS |
 | Learning materials and grades to/from Moodle | REST API over HTTPS |
 | Infrastructure management | AWS SDK / API |
-
----
 

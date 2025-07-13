@@ -1,4 +1,7 @@
 # SWARC_Startup_UniversityManagement
+
+Gebhart Daniel, Peirl Sophie, Boigner Thomas
+
 [01-Introduction-and-Goals.md]  
 [02-Architecture-Constraints.md]  
 [03-Context-and-scope.md]  
