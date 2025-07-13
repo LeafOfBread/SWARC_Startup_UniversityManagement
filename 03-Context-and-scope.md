@@ -1,83 +1,67 @@
 # System Scope and Context
 
-**Contents.**
+## Contents
 
-System scope and context - as the name suggests - delimits your system
-(i.e. your scope) from all its communication partners (neighboring
-systems and users, i.e. the context of your system). It thereby
-specifies the external interfaces.
+This section defines the boundaries of the University Management System (UMS) and its interactions with external systems and users. It describes both the business and technical context to ensure clarity about interfaces and integration points.
 
-If necessary, differentiate the business context (domain specific inputs
-and outputs) from the technical context (channels, protocols, hardware).
+## Motivation
 
-**Motivation.**
+Understanding the domain and technical interfaces is crucial for planning integrations, defining security measures, and satisfying stakeholder requirements. It also avoids misunderstandings about system boundaries during development and deployment.
 
-The domain interfaces and technical interfaces to communication partners
-are among your system’s most critical aspects. Make sure that you
-completely understand them.
+---
 
-**Form.**
+## Business Context
 
-Various options:
+The following table describes how the University Management System interacts with external users and systems at the business (domain) level.
 
--   Context diagrams
+| Communication Partner | Inputs to UMS | Outputs from UMS |
+| --------------------- | ------------- | ---------------- |
+| Student | Enrollment requests, updates to personal info, course selections | Enrollment confirmation, course schedules, grades, billing statements |
+| Senior Lecturer | Course creation data, grading submissions, learning materials | Course lists, enrolled student lists, confirmation of grade submissions |
+| University Administrator | Facility schedules, room management requests | Room availability, booking confirmations, facility reports |
+| Chief Information Officer | System usage metrics, compliance reports requests | Security and audit reports, GDPR compliance confirmations |
+| Financial Officer | Tuition fee structures, billing policies | Billing overviews, reports, financial transactions data |
+| Student Information System (SIS) | Student records, enrollment status updates | Updated enrollment status, personal info updates |
+| Financial Management System | Financial transaction requests, billing data | Financial reports, billing confirmations |
+| Moodle | Course materials, grade updates | Updated learning materials, grades synchronization |
 
--   Lists of communication partners and their interfaces.
+### Explanation of External Domain Interfaces
 
+- **Students** access the UMS to enroll in courses, manage their information, and view grades and billing information.
+- **Senior Lecturers** use the UMS to create courses, upload learning materials, and enter grades.
+- **University Administrators** handle room and facility management tasks.
+- **CIO and Financial Officer** require system data for compliance, financial oversight, and strategic planning.
+- **External Systems (SIS, Financial System, Moodle)** require integration for seamless data flow, avoiding duplicate data entry and ensuring consistency across systems.
 
-Business Context
-----------------
+---
 
-**Contents.**
+## Technical Context
 
-Specification of **all** communication partners (users, IT-systems, …)
-with explanations of domain specific inputs and outputs or interfaces.
-Optionally you can add domain specific formats or communication
-protocols.
+The table below describes the technical interfaces (protocols, channels) used to connect UMS with its external systems.
 
-**Motivation.**
+| Communication Partner | Protocol / Channel | Format |
+| --------------------- | ------------------ | ------ |
+| Students / Lecturers / Administrators | HTTPS Web Interface | HTML/CSS/JS (Vue.js frontend), JSON API responses |
+| SIS | REST API over HTTPS | JSON |
+| Financial Management System | REST API over HTTPS | JSON |
+| Moodle | REST API over HTTPS | JSON, Moodle-specific API formats |
+| AWS Infrastructure | AWS SDK / API | JSON, YAML for configuration |
 
-All stakeholders should understand which data are exchanged with the
-environment of the system.
+### Explanation of Technical Interfaces
 
-**Form.**
+- The UMS provides a **web interface** for end users via HTTPS, ensuring secure communication.
+- Integrations with **SIS**, **Financial Management System**, and **Moodle** are implemented via REST APIs secured over HTTPS, exchanging JSON payloads.
+- **AWS Services** (e.g. RDS for databases, IAM for access management) will be accessed via AWS SDKs and APIs for managing infrastructure and deployments.
 
-All kinds of diagrams that show the system as a black box and specify
-the domain interfaces to communication partners.
+### Mapping Input/Output to Channels
 
-Alternatively (or additionally) you can use a table. The title of the
-table is the name of your system, the three columns contain the name of
-the communication partner, the inputs, and the outputs.
+| Input / Output | Channel |
+| -------------- | ------- |
+| Enrollment requests, grade entries, billing data | Web Frontend (Vue.js) via HTTPS |
+| Data synchronization with SIS | REST API over HTTPS |
+| Financial transactions with Financial Management System | REST API over HTTPS |
+| Learning materials and grades to/from Moodle | REST API over HTTPS |
+| Infrastructure management | AWS SDK / API |
 
-**&lt;Diagram or Table&gt;**
+---
 
-**&lt;optionally: Explanation of external domain interfaces&gt;**
-
-
-Technical Context
------------------
-
-**Contents.**
-
-Technical interfaces (channels and transmission media) linking your
-system to its environment. In addition a mapping of domain specific
-input/output to the channels, i.e. an explanation with I/O uses which
-channel.
-
-**Motivation.**
-
-Many stakeholders make architectural decision based on the technical
-interfaces between the system and its context. Especially infrastructure
-or hardware designers decide these technical interfaces.
-
-**Form.**
-
-E.g. UML deployment diagram describing channels to neighboring systems,
-together with a mapping table showing the relationships between channels
-and input/output.
-
-**&lt;Diagram or Table&gt;**
-
-**&lt;optionally: Explanation of technical interfaces&gt;**
-
-**&lt;Mapping Input/Output to Channels&gt;**
